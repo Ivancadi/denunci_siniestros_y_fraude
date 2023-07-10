@@ -1,0 +1,21 @@
+SELECT f1.Monthh, f1.Weekofmonth, f1.DayOfWeekk, ROUND(f2.Percentage_fraud_month, 2) AS Percentage_fraud_month, ROUND(f3.Percentage_fraud_month_week, 2) AS Percentage_fraud_month_week, ROUND(f4.Percentage_fraud_month_week_day, 2) AS Percentage_fraud_month_week_day
+FROM fraudes f1
+JOIN (
+    SELECT Monthh, ROUND((SUM(FraudFound_P)/COUNT(*))*100, 2) AS Percentage_fraud_month
+    FROM fraudes
+    GROUP BY Monthh
+) f2 ON f1.Monthh = f2.Monthh
+JOIN (
+    SELECT Weekofmonth, ROUND((SUM(FraudFound_P)/COUNT(*))*100, 2) AS Percentage_fraud_month_week
+    FROM fraudes
+    GROUP BY Weekofmonth
+) f3 ON f1.Weekofmonth = f3.Weekofmonth
+JOIN (
+    SELECT DayOfWeekk, ROUND((SUM(FraudFound_P)/COUNT(*))*100, 2) AS Percentage_fraud_month_week_day
+    FROM fraudes
+    GROUP BY DayOfWeekk
+) f4 ON f1.DayOfWeekk = f4.DayOfWeekk
+GROUP BY f1.Monthh, f1.Weekofmonth, f1.DayOfWeekk, f2.Percentage_fraud_month, f3.Percentage_fraud_month_week, f4.Percentage_fraud_month_week_day
+ORDER BY f1.Monthh, f1.Weekofmonth, f1.DayOfWeekk ASC;
+
+# Realmente no pude dar sin las subconsultas, intente con windows functions pero no logre, encantado de feedback en este punto.
