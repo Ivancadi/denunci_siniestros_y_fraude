@@ -1,4 +1,4 @@
-# Estrategias para reducir las pérdidas por fraude en las reclamaciones de siniestro en una empresa de seguros vehiculares
+# _Estrategias para reducir las pérdidas por fraude en las reclamaciones de siniestro en una empresa de seguros vehiculares_
 
 ## Introducción
 Este documento presenta una serie de recomendaciones basadas en un análisis de datos sobre reclamaciones de siniestros y fraudes en una empresa de seguros vehiculares. El objetivo es proporcionar estrategias efectivas para reducir las pérdidas por fraude y proteger los activos de la empresa. Estas recomendaciones se basan en los insights obtenidos del análisis de datos y se centran en áreas clave identificadas durante el proceso.
